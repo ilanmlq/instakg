@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="css/header.css">
 <div class="navigation">
-
   <div class="logo">
     <a class="no-underline" href="#">
       Instakg
@@ -12,6 +11,10 @@
     
       <div class="search-container-box">
         <div class="search-results">
+
+        </div>
+      </div>
+    </div>
   </div>
   <div class="navigation-icons"> 
     <div class="logo">
@@ -27,3 +30,4 @@
     <img src="img/round.png" width="35">
   </div>
  
+   
