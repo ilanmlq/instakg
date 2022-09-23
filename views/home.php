@@ -10,7 +10,7 @@
     </div>
 
     <div class="Instagram-card-content">
-        <p class="Likes">640 Likes</p>
+        <a href=""><p class="Likes"><img src="views/img/like.png" width="25"></a> 640 Likes</p>
         <p><a class="Instagram-card-content-user" href="index.php?url=profile&id=1">Kurei
             </a>
             Statut du post
