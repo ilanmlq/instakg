@@ -24,7 +24,7 @@ if (isset($_SESSION['errorRegister'])) {
                 <div class="overlap-text">
                     <input type="password" name="mdpHashRepeat" placeholder="confirmer mot de passe" class="input-2" />
                 </div>
-                <input type="button" value="Créer" class="btn" />
+                <input type="submit" value="Créer" class="btn" />
             </div>
         </div>
         <div class="sub-content">

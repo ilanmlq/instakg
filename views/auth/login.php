@@ -17,7 +17,7 @@ if (isset($_SESSION['errorLogin'])) {
                 <div class="overlap-text">
                     <input type="password" name="mdpHash" placeholder="mot de passe" class="input-2" />
                 </div>
-                <input type="button" value="Se connecter" class="btn" />
+                <input type="submit" value="Se connecter" class="btn" />
             </div>
         </div>
         <div class="sub-content">
