@@ -6,7 +6,7 @@ $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 
 if (!isset($_SESSION['isConnected'])) {
-    $url = "accueil";
+    $url = "auth";
 }
 
 require_once 'views/header.php';
