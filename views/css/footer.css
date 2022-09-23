@@ -2,4 +2,6 @@ footer{
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: #ffffff;
+  border-top: rgb(221, 221, 221) 1px solid;
 }
