@@ -1,7 +1,7 @@
 <?php 
 
 if (isset($_SESSION['errorLogin'])) {
-    echo "<div class='alert alert-danger' role='alert'>$_SESSION[errorLogin]</div>";
+    echo "<div class='alert alert-danger' role='alert'><ul>$_SESSION[errorLogin]</ul></div>";
 }
 
 ?>
