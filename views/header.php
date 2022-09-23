@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="views/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="views/css/login.css">
+
   <title>Document</title>
 </head>
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (isset($_SESSION['errorLogin'])) {
     echo "<div class='alert alert-danger' role='alert'><ul>$_SESSION[errorLogin]</ul></div>";
@@ -7,24 +7,23 @@ if (isset($_SESSION['errorLogin'])) {
 ?>
 
 <form action="index.php?url=auth&action=validLogin" method="POST">
-    <div class="container-auth">
-        <h1>Se connecter</h1>
-        <p>Veuillez remplir toutes les données pour pouvoir se connecter.</p>
-
-        <hr>
-
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Votre Email" name="email" value="">
-
-        <label for="pwd"><b>Mot de passe</b></label>
-        <input type="password" placeholder="Votre mot de passe" name="pwd">
-
-        <hr>
-
-        <button type="submit" class="loginBtn">Se connecter</button>
-    </div>
-
-    <div class="container signin">
-        <p>Pas de compte ? <a href="index.php?url=auth&action=register">S'inscrire</a>.</p>
+    <div id="wrapper">
+        <div class="main-content">
+            <div class="logo">
+                    Instakg
+            </div>
+            <div class="l-part">
+                <input type="text" placeholder="email" class="input-1" />
+                <div class="overlap-text">
+                    <input type="password" placeholder="mot de passe" class="input-2" />
+                </div>
+                <input type="button" value="Se connecter" class="btn" />
+            </div>
+        </div>
+        <div class="sub-content">
+            <div class="s-part">
+                Vous n'avez pas de compte ?<a href="index.php?url=auth&action=register"> Créer</a>
+            </div>
+        </div>
     </div>
 </form>
