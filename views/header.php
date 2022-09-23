@@ -34,7 +34,7 @@
     </div>
     <div class="navigation-icons">
       <div class="logo">
-        <a href="index.php?url=home"><img src="views/img/home.png" width="35"></a>
+        <a href="index.php?url=accueil"><img src="views/img/home.png" width="35"></a>
       </div>
       <div class="logo">
         <a href="index.php?url=msg"><img src="views/img/msg.png" width="35"></a>
