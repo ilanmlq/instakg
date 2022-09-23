@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="views/css/footer.css">
   <link rel="stylesheet" href="views/css/header.css">
   <link rel="stylesheet" href="views/css/auth.css">
+  <link rel="stylesheet" href="views/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet"> 
   <title>Document</title>
 </head>
 
