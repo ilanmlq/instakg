@@ -4,15 +4,12 @@ session_start();
 
 $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+
 if (!isset($_SESSION['isConnected'])) {
     $url = "auth";
 }
 
 require_once 'views/header.php';
-
-if (empty($url)) {
-    $url = 'accueil';
-}
 
 switch ($url) {
     case 'auth':

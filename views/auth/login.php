@@ -1,39 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./views/css/auth.css">
-</head>
+if (isset($_SESSION['errorLogin'])) {
+    echo "<div class='alert alert-danger' role='alert'>$_SESSION[errorLogin]</div>";
+}
 
-<body>
-    <form action="/action_page.php">
-        <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
+?>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+<form action="index.php?url=auth&action=validLogin" method="POST">
+    <div class="container-auth">
+        <h1>Se connecter</h1>
+        <p>Veuillez remplir toutes les données pour pouvoir se connecter.</p>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <hr>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-            <hr>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Votre Email" name="email" value="">
 
-            <button type="submit" class="registerbtn">Register</button>
-        </div>
+        <label for="pwd"><b>Mot de passe</b></label>
+        <input type="password" placeholder="Votre mot de passe" name="pwd">
 
-        <div class="container signin">
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div>
-    </form>
-</body>
+        <hr>
 
-</html>
+        <button type="submit" class="loginBtn">Se connecter</button>
+    </div>
+
+    <div class="container signin">
+        <p>Pas de compte ? <a href="index.php?url=auth&action=register">S'inscrire</a>.</p>
+    </div>
+</form>

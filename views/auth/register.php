@@ -1,4 +1,14 @@
-<form action="index.php?url=acce">
+<?php 
+
+//<div class="success">Successful operation message</div>
+	
+if (isset($_SESSION['errorRegister'])) {
+    echo "<div class='error'>$_SESSION[errorRegister]</div>";
+}
+
+?>
+
+<form action="index.php?url=auth&action=validRegister" method="POST">
     <div class="container-auth">
         <h1>S'inscrire</h1>
         <p>Veuillez remplir toutes les données pour pouvoir s'inscrire.</p>
@@ -25,6 +35,6 @@
     </div>
 
     <div class="container signin">
-        <p>Déjà un compte ? <a href="#">Se connecter</a>.</p>
+        <p>Déjà un compte ? <a href="index.php?url=auth&action=login">Se connecter</a>.</p>
     </div>
 </form>
