@@ -7,7 +7,7 @@ class User{
     }
 
     public static function readUserByEmail(string $email) : mixed {
-        $query = 'SELECT * FROM USER WHERE emailUser = ?';
+        $query = 'SELECT * FROM USER WHERE email = ?';
         $params = [$email];
 
         $req = MonPdo::getInstance()->prepare($query);
@@ -17,13 +17,20 @@ class User{
         return $req->fetch();
     }
 
-    public static function login(string $email, string $pwd) : bool {
+    public static function login(string $email, string $mdpHash) : bool {
 
         $user = User::readUserByEmail($email);
 
         if ($user && $email == $user->emailUser) {
-            if (password_verify($pwd, $user->pwdHash)) {
+            if (password_verify($mdpHash, $user->mdpHash)) {
                 
+                $_SESSION = [
+                    'isConnected' => true,
+                    'idUser' => $user->idUser,
+                    'email' => $user->email,
+                    'idRole' => $user->idRole
+                ];
+
                 return 0;
             } else {
                 return 1;
@@ -31,9 +38,9 @@ class User{
         }
     }
 
-    public static function register(string $email, string $username, string $pwd) : bool{
-        $query = "INSERT INTO USER (nameUser, emailUser, pwdHash, idRole) VALUES (?, ?, ?, 2)";
-        $params = [$email, $username, password_hash($pwd, PASSWORD_DEFAULT)];
+    public static function register(string $pseudo, string $email, string $mdpHash, $pp) : bool{
+        $query = "INSERT INTO USER (pseudo, email, mdpHash, pp, idRole) VALUES (?, ?, ?, ?, 1)";
+        $params = [$pseudo, $email, password_hash($mdpHash, PASSWORD_DEFAULT), $pp];
 
         $req = MonPdo::getInstance()->prepare($query);
         return $req->execute($params);   

@@ -25,7 +25,18 @@ switch ($action) {
 
     case 'validLogin':
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $mdpHash = filter_input(INPUT_POST, 'mdpHash', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        $_SESSION['errorLogin'] = NULL;
+
+        if(User::login($email, $mdpHash) != 0){
+            $_SESSION['errorLogin'] = "<span class='error'>Les informations de connexion de sont pas bonnes</span>";
+        }
+
+        if(User::login($email, $mdpHash) == 0){
+            header("Location: index.php?url=accueil");
+            exit;
+        }
 
         include './views/auth/login.php';
         break;
@@ -33,8 +44,10 @@ switch ($action) {
 
     case 'validRegister':
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $pwdRepeat = filter_input(INPUT_POST, 'pwdRepeat', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $mdpHash = filter_input(INPUT_POST, 'mdpHash', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $mdpHashRepeat = filter_input(INPUT_POST, 'mdpHashRepeat', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $pp = filter_input(INPUT_POST, 'pp', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $_SESSION["errorRegister"] = NULL;
         $formValid = false;
@@ -42,13 +55,17 @@ switch ($action) {
         if(empty($email)){
             $_SESSION['errorRegister'] = "<li><span class='error'>L'Email ne doit pas être vide</span></li>";
         }
-
-        if(strlen($pwd) <= 4){
+        if(strlen($pseudo) <= 3){
+            $_SESSION['errorRegister'] .= "<li><span class='error'>Le nom d'utilisateur doit faire plus de 3 caractères</span></li>";
+        }
+        if(strlen($mdpHash) <= 4){
             $_SESSION['errorRegister'] .= "<li><span class='error'>Le mot de passe doit faire plus de 4 caractères</span></li>";
         }
-
-        if($pwd != $pwdRepeat){
+        if($mdpHash != $mdpHashRepeat){
             $_SESSION['errorRegister'] .= "<li><span class='error'>Les deux mot de passe ne sont pas identiques</span></li>";
+        }
+        if(empty($pp)){
+            $_SESSION['errorRegister'] .= "<li><span class='error'>Vous devez choisir une photo de profil</span></li>";
         }
 
         if($_SESSION["errorRegister"] == NULL){
@@ -56,7 +73,7 @@ switch ($action) {
         }
 
         if($formValid){
-            // Créer un utilisateur
+            User::register($pseudo, $email, $pwd, $pp);
         }
         
         include './views/auth/register.php';

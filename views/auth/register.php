@@ -1,6 +1,4 @@
 <?php 
-
-//<div class="success">Successful operation message</div>
 	
 if (isset($_SESSION['errorRegister'])) {
     echo "<div class='error'><ul>$_SESSION[errorRegister]</ul></div>";
