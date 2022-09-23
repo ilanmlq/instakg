@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="views/css/footer.css">
   <link rel="stylesheet" href="views/css/header.css">
+  <link rel="stylesheet" href="views/css/auth.css">
   <title>Document</title>
 </head>
 
@@ -33,16 +34,16 @@
     </div>
     <div class="navigation-icons">
       <div class="logo">
-        <img src="views/img/home.png" width="35">
+        <a href="index.php?url=home"><img src="views/img/home.png" width="35"></a>
       </div>
       <div class="logo">
-        <img src="views/img/msg.png" width="35">
+        <a href="index.php?url=msg"><img src="views/img/msg.png" width="35"></a>
       </div>
       <div class="logo">
-        <img src="views/img/upload.png" width="35">
+        <a href="index.php?url=upload"><img src="views/img/upload.png" width="35"></a>
       </div>
       <div class="logo">
-        <img src="views/img/round.png" width="35">
+        <a href="index.php?url=profile"><img src="views/img/round.png" width="35"></a>
       </div>
     </div>
   </div>
