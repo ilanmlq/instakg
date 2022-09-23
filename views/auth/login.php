@@ -13,9 +13,9 @@ if (isset($_SESSION['errorLogin'])) {
                     Instakg
             </div>
             <div class="l-part">
-                <input type="text" placeholder="email" class="input-1" />
+                <input type="text" placeholder="email" name="email" class="input-1" />
                 <div class="overlap-text">
-                    <input type="password" placeholder="mot de passe" class="input-2" />
+                    <input type="password" name="mdpHash" placeholder="mot de passe" class="input-2" />
                 </div>
                 <input type="button" value="Se connecter" class="btn" />
             </div>
