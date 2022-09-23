@@ -3,7 +3,7 @@
 session_start();
 
 $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-if(!isConnected()){
+if (!isConnected()) {
     $url = "auth";
 }
 
@@ -14,17 +14,20 @@ if (empty($url)) {
 }
 
 switch ($url) {
+    case 'auth':
+        include('controllers/controllerAuth.php');
+        break;
     case 'accueil':
-        include('views/home.php');
+        include('controllers/controllerHome.php');
         break;
     case 'msg':
-        include('views/msg.php');
+        include('controllers/controllerMsg.php');
         break;
     case 'upload':
-        include('views/upload.php');
+        include('controllers/controllerUpload.php');
         break;
     case 'profile':
-        include('views/profile.php');
+        include('controllers/controllerProfile.php');
         break;
 }
 
