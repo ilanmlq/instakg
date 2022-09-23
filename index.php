@@ -7,11 +7,11 @@ $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 require_once 'views/header.php';
 
 if (empty($url)) {
-    $url = 'home';
+    $url = 'accueil';
 }
 
 switch ($url) {
-    case 'home':
+    case 'accueil':
         include('views/home.php');
         break;
     case 'msg':
